@@ -1,0 +1,16 @@
+{% extends 'apps/homepages/homepagebase.html'%}
+{% load static %}
+
+{% block content%}
+{% for workoutlog in workoutlog_list %}
+<div class="post-entry">
+    <h2>{{workoutlog.workoutLogID}}</h2>
+    <h2>
+        <a href="">{{workoutlog.workoutLogDate}}</a>
+    </h2>
+</div>
+{% endfor %}
+
+{% endblock content %}
+
+

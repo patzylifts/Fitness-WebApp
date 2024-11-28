@@ -1,0 +1,74 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFit | Elevate</title>
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+    <!--Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+    {% include 'apps/homepages/navbar.html' %}
+   
+    <!--For Content -->
+    {% block content%}
+        <section id="hero" style ="background-image: url('{% static 'images/background/deadlift.jpg' %}');">
+            <div class="hero-content">
+                <h2>Your Fitness Journey Starts Here</h2>
+                <p>Personalized fitness programs that align with your unique needs.</p>
+                
+                
+                {% include 'apps/homepages/form_popup.html'%}
+                
+            </div>   
+        </section>
+    
+        <!-- Program -->
+        <section id="program">
+            <h2>Our Program</h2>
+            <div class="program-details">
+                <h3>Personalized Training Plan</h3>
+                <p>We design workout plans that match your fitness goals, lifestyle, and preferences.</p>
+                <ul>
+                    <li>
+                        <div class="feature-item">
+                            <img width="100" height="100" src="https://img.icons8.com/glyph-neue/100/deadlift.png" alt="Custom Workout Image" class="feature-img">
+                            <span>Customized Workout Routines</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="feature-item">
+                            <img width="100" height="100" src="https://img.icons8.com/ios/100/caloric-energy.png" alt="Nutrition Guidance Image" class="feature-img">
+                            <span>Nutrition Guidance</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="feature-item">
+                            <img width="100" height="100" src="https://img.icons8.com/external-justicon-lineal-justicon/100/external-progress-business-management-justicon-lineal-justicon.png" alt="external-progress-business-management-justicon-lineal-justicon" class="feature-img"/>
+                            <span>Progress Tracking</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="feature-item">
+                            <img width="100" height="100" src="https://img.icons8.com/carbon-copy/100/last-24-hours.png" alt="24/7 Support Image" class="feature-img">
+                            <span>24/7 Support</span>
+                        </div>
+                    </li>
+                </ul>
+                <a href="#contact" class="cta-btn">Get Started Today</a>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about">
+            <h2>About Us</h2>
+            <p>At PFit, we have fitness programs based on individual goals, whether you want to lose weight, build muscle, or improve overall wellness.</p>
+        </section>
+    {% endblock content %}
+    {% include 'apps/homepages/footer.html' %}
+</body>
+</html>

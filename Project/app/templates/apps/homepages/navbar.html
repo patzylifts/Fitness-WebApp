@@ -1,0 +1,32 @@
+
+{% load static %}
+
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <img width="32" height="32" src="{% static 'images/logo/logo.png'%}" alt="">
+            <a href="{% url 'home'%}">PFit</a>
+
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#about" class ="nav-btn">About</a></li>
+            <li><a href="#program" class="nav-btn">Program</a></li>
+            <li><a href="#contact" class ="nav-btn">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<script>
+    // Mobile menu toggle
+    const mobileMenu = document.querySelector('#mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    mobileMenu.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+    });
+</script>
