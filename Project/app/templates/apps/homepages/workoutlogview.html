@@ -6,7 +6,10 @@
 <div class="post-entry">
     <h2>{{workoutlog.workoutLogID}}</h2>
     <h2>
-        <a href="">{{workoutlog.workoutLogDate}}</a>
+        <a href="{% url 'workoutplan'%}">{{workoutlog.workoutLogDate}}</a>  
+        <a href="{% url 'workoutplan'%}">{{workoutlog.workoutLogTime}}</a>
+        <a href="{% url 'workoutplan'%}">{{workoutlog.workoutLogDuration}}</a>
+        <a href="{% url 'workoutplan'%}">{{workoutlog.workoutLogDistance}}</a>
     </h2>
 </div>
 {% endfor %}
