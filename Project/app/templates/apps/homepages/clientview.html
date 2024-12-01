@@ -1,0 +1,17 @@
+{% extends 'apps/homepages/homepagebase.html'%}
+{% load static %}
+
+{% block content%}
+
+<div class="post-entry">
+    <form action="" method="POST">
+        {{ form.as_p }}
+        {% csrf_token %}
+       
+        <input class ="cta-btn" type="submit" value ="Save" >
+    </form>
+</div>
+
+
+{% endblock content %}
+

@@ -37,41 +37,10 @@
       <h3 class="div-header">Fitness Profile</h3>
       <div class="form-container">
         <form action="" method="POST">
+            {{ form.as_p }}
             {% csrf_token %}
-            <input type="text" class="form-input" placeholder="First name" name="fname" required>
-            <input type="text" class="form-input" placeholder="Last name" name="lname" required>
-            <input type="number" class="form-input" placeholder="Age" name="clientAge" required>
-            
-            <select class="form-select" required name="clientSex">
-              <option value="" class="form-input" disabled selected>Sex</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="other">Other</option>
-            </select>
-          
-            <input type="date" class="form-input"  name="birthdate" placeholder="Birthdate" required>
-            <select class="form-select" required name="goal">
-              <option value="" disabled selected>Goal</option>
-              <option value="weight_loss">Weight Loss</option>
-              <option value="muscle_gain">Muscle Gain</option>
-              <option value="maintenance">Maintenance</option>
-              <option value="powerlift">Powerlift Strength Training</option>
-            </select>
-          
-            <input type="number" class="form-input" name="weight" placeholder="Weight (kg)" step="0.01" required>
-            <input type="number" class="form-input" name="height"placeholder="Height (cm)" required>
-            
-            <!--Activity Level-->
-            <select class="form-select" required name="activityLevel">
-                <option value="" disabled selected>Activity</option>
-                <option value="sedentary">Sedentary (Office Job)</option>
-                <option value="light-exer"> Light Exercise (1-2 days a week)</option>
-                <option value="moder-exer"> Moderate Exercise (3-5 days a week)</option>
-                <option value="heavy-exer"> Heavy Exercise (6-7 days a week)</option>
-                <option value="athlete"> Athlete (2x per day)</option>
-              </select>
-            <input type="date" class="form-input"  name="joinedDate" placeholder="Joined Date" required>
-            <input class ="cta-btn" type="submit">
+           
+            <input class ="cta-btn" type="submit" value="Save">
             
           </form>
       </div>    

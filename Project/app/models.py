@@ -18,12 +18,24 @@ class Client(models.Model):
     fname = models.CharField(max_length=100,null = False) 
     lname = models.CharField(max_length=100, null = False)  
     clientAge=models.PositiveIntegerField()
-    clientSex = models.TextChoices('Male', 'Female', 'Other')
+    gender_choices = (
+        ('M', 'Male'),
+        ('F', 'Female'),
+        ('', 'Other'),
+    )
+    clientSex = models.CharField(max_length=10, choices=gender_choices)
     birthdate = models.DateField()
     goal = models.ForeignKey(Goals, on_delete=models.CASCADE)
     weight = models.FloatField()
     height = models.FloatField()
-    activityLevel = models.TextChoices('Sedentary', 'Lightly Active', 'Moderately Active', 'Very Active', 'Athlete 2x per day')
+    level_choices = (
+        ('Sedentary', 'Sedentary'),
+        ('Lightly Active', 'Lightly Active'),
+        ('Moderately Active', 'Moderately Active'),
+        ('Very Active', 'Very Active'),
+        ('Athlete 2x per day', 'Athlete 2x per day'),
+    )
+    activityLevel = models.CharField(max_length=100, choices=level_choices)
     joinedDate = models.DateField(null = False)
 
     def __str__(self):

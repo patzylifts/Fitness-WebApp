@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.views.generic import TemplateView, ListView, DetailView
-from .models import WorkoutLog, WorkoutPlan, Goals
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from .models import WorkoutLog, WorkoutPlan, Goals, Client
 
 
 
@@ -27,7 +28,14 @@ class WorkoutLogListView(ListView):
     context_object_name = 'workoutlog_list'
     template_name = 'apps/homepages/workoutlogview.html'
 
+# View for WorkoutPlan View
 class WorkoutDetailView(DetailView):
     model = WorkoutPlan
     context_object_name = 'workoutplan'
     template_name = 'apps/homepages/workoutplanview.html'
+
+class ClientCreateView(CreateView):
+    model = Client
+    fields = ['fname', 'lname', 'clientAge', 'clientSex', 'birthdate', 'goal','weight', 'height', 'activityLevel', 'joinedDate']
+    context_object_name = 'client'
+    template_name = 'apps/homepages/form_popup.html#popupForm2'
