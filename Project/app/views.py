@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.views.generic import TemplateView, ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import WorkoutLog, WorkoutPlan, Goals, Client
-
+from .forms import ClientForm
 
 
 #Views of the pages
@@ -36,6 +36,7 @@ class WorkoutDetailView(DetailView):
 
 class ClientCreateView(CreateView):
     model = Client
-    fields = ['fname', 'lname', 'clientAge', 'clientSex', 'birthdate', 'goal','weight', 'height', 'activityLevel', 'joinedDate']
-    context_object_name = 'client'
-    template_name = 'apps/homepages/form_popup.html#popupForm2'
+    form_class = ClientForm
+   # fields = ['fname', 'lname', 'clientAge', 'clientSex', 'birthdate', 'goal','weight', 'height', 'activityLevel', 'joinedDate']
+    #context_object_name = 'client'
+    template_name = 'apps/homepages/clientview.html'

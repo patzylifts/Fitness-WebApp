@@ -14,9 +14,11 @@
             <span></span>
         </div>
         <ul class="nav-links">
-            <li><a href="#about" class ="nav-btn">About</a></li>
-            <li><a href="#program" class="nav-btn">Program</a></li>
-            <li><a href="#contact" class ="nav-btn">Contact</a></li>
+            <li><a href="{% url 'home'%}#about" class ="nav-btn">About</a></li>
+            <li><a href="{% url 'home'%}#program" class="nav-btn">Program</a></li>
+            <li><a href="{% url 'home'%}#contact" class ="nav-btn">Contact</a></li>
+            <li><a href="{% url 'client_profile' %}" class="bi bi-person-circle"></a></li>
+           
         </ul>
     </nav>
 </header>

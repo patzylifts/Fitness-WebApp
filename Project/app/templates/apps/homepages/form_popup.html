@@ -3,17 +3,17 @@
 
   
   <!-- Button to open the popup -->
-  <a class="cta-btn" id="popup_link" href="#popupForm1">Discover Your Program</a>
+  <a class="cta-btn" id="popup_link" href="#popupForm2">Discover Your Program</a>
   
   <!-- Dark overlay behind the popup -->
   <!-- First Popup Div -->
-  <div id="popupForm1" class="popup">
+  {% comment %} <div id="popupForm1" class="popup">
     <div class="popup-content">
       <a href="#" class="close">&times;</a>
       <h3 class="div-header">What's your primary goal?</h3>
       <div class="grid-item">
         <div class="descrip">
-            <a href="#popupForm2" class="goal">Lose Weight</a>
+            <a href="{% url 'client_create'%}" class="goal">Lose Weight</a>
           </div>
           <div class="descrip">
             <a href="#popupForm2" class="goal">Maintain weight</a>
@@ -26,11 +26,11 @@
           </div>
       </div>      
     </div>
-  </div>
+  </div> {% endcomment %}
 
   <!-- Second Popup Div -->
  
-           
+         
   <div id="popupForm2" class="popup">
     <div class="popup-content">
       <a href="#" class="close">&times;</a>
@@ -39,13 +39,15 @@
         <form action="" method="POST">
             {{ form.as_p }}
             {% csrf_token %}
-           
+            
             <input class ="cta-btn" type="submit" value="Save">
+            <input class ="cta-btn" type="submit" value="Edit">
             
           </form>
       </div>    
     </div>
   </div>
+  
 
 
 
