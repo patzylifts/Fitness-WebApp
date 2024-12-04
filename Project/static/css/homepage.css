@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
+
 * {
 	box-sizing: border-box;
 }
@@ -7,105 +8,12 @@
 body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    line-height: 1.6;
+    line-height: 1.5rem;
 }
 
-/* Header and navigation bar styles */
-.navbar {
-    background-color: #1a3636;
-    color: white;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-}
-
-.logo a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.nav-links {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-}
-
-.nav-links li {
-    margin: 0 15px;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.1rem;
-}
-
-.nav-links .cta-btn {
-    background-color: #ff6b6b;
-    padding: 8px 16px;
-    border-radius: 5px;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.nav-links .cta-btn:hover {
-    background-color: #ff4c4c;
-}
-
-/* Mobile Menu Toggle (Hamburger Icon) */
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.menu-toggle span {
-    width: 30px;
-    height: 4px;
-    background-color: white;
-    margin: 4px 0;
-}
-
-/* Responsive styles */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background-color: #333;
-        position: absolute;
-        top: 60px;
-        left: 0;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links li {
-        margin: 10px 0;
-        text-align: center;
-    }
-
-    .menu-toggle {
-        display: flex;
-    }
-}
 
 /* Hero section styles */
 #hero {
-    background: url('https://via.placeholder.com/1500x500') no-repeat center center/cover;
     color: white;
     height: 100vh;
     display: flex;
@@ -129,19 +37,6 @@ body {
     margin-bottom: 20px;
 }
 
-.nav-btn {
-    
-    color: white;
-    padding: 10px 25px;
-    text-decoration: none;
-    font-size: 1.2rem;
-    border-radius: 5px;
-}
-
-.nav-btn:hover {
-    background-color: #677d6a;
-    border-radius: 32px;
-}
 
 /* About section */
 #about {
@@ -154,7 +49,23 @@ body {
     margin: 0 auto;
     font-size: 1.2rem;
 }
-/* Program section */
+
+/* CSS for listview and detailview */
+#logview {
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.hero-content {
+    background-color: rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(10px); 
+    padding: 20px; 
+    border-radius: 10px;
+    height: fit-content;
+}
 /* Program section */
 #program {
     background-color: #f4f4f4;
@@ -390,6 +301,43 @@ body {
       margin: 5px 0;
     }
   }
+
+
+
+  .dropdown{
+    display: inline-block;
+}
+.dropdown button{
+    background-color: hsl(0, 0%, 80%);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+.dropdown a{
+    display: block;
+    color: black;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+.dropdown .content{
+    display: none;
+    position: absolute;
+    background-color: hsl(0, 0%, 95%);
+    min-width: 100px;
+    box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.8);
+}
+.dropdown:hover .content{
+    display: block;
+}
+.dropdown:hover button{
+    background-color: hsl(0, 0%, 70%);
+}
+.dropdown a:hover{
+    background-color: hsl(0, 0%, 90%);
+}
+
+
   
 
 

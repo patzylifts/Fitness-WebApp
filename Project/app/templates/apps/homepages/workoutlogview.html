@@ -3,20 +3,18 @@
 
 {% block content%}
 {% for workoutlog in workoutlog_list %}
-<div class="post-entry">
-    <h2>{{workoutlog.workoutLogID}}</h2>
-    <h2>
-        <a href="{% url 'workoutplan'%}">{{workoutlog.workoutLogDate}}</a>  
-        <a href="{% url 'workoutplan'%}">{{workoutlog.workoutLogTime}}</a>
-        <a href="{% url 'workoutplan'%}">{{workoutlog.workoutLogDuration}}</a>
-        <a href="{% url 'workoutplan'%}">{{workoutlog.workoutLogDistance}}</a>
+<section id ="hero">
+    <div class="hero-content">
+        <h2>{{workoutlog.workoutLogID}}</h2>
+        <h2>
+            <a href="{% url 'workoutplan' workoutlog.pk%}">{{workoutlog.workoutLogDate}}</a>  
+            <a href="{% url 'workoutplan' workoutlog.pk%}">{{workoutlog.workoutLogTime}}</a>
+            <a href="{% url 'workoutplan' workoutlog.pk%}">{{workoutlog.workoutLogDuration}}</a>
+            <a href="{% url 'workoutplan' workoutlog.pk%}">{{workoutlog.workoutLogDistance}}</a>      
+        </h2>
+    </div>
+</section>
 
-        <p>new clonflir</p>
-
-        <p>Hello</p>
-        <a href="ddd"></a>
-    </h2>
-</div>
 {% endfor %}
 
 {% endblock content %}

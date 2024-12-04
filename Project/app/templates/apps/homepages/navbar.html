@@ -1,34 +1,88 @@
-
 {% load static %}
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+   
 
-<header>
-    <nav class="navbar">
-        <div class="logo">
-            <img width="32" height="32" src="{% static 'images/logo/logo.png'%}" alt="">
-            <a href="{% url 'home'%}">PFit</a>
+<header class="header">
+    <a href="#" class="header__logo">PFit</a>
 
+    <i class="bx bx-menu header__toggle" id="header-toggle"></i>
+
+    <nav class="nav" id="nav-menu">
+      <div class="nav__content bd-grid">
+        <a href="" class="nav__perfil">
+          <div>
+            <span class="nav__name">PFit</span>
+          </div>
+        </a>
+
+        <div class="nav__menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#" class="nav__link active">Home</a>
+            </li>
+
+            <li class="nav__item">
+              <a href="{% url 'home' %}#about" class="nav__link">About</a>
+            </li>
+
+            <li class="nav__item dropdown">
+              <a href="{% url 'home'%}#program" class="nav__link">Program </a>              
+            </li>
+
+            <li class="nav__item">
+              <a href="{% url 'home'%}#contact" class="nav__link">Contact</a>
+            </li>
+
+            <li class="nav__item dropdown">
+              <a href="" class="bi bi-person-circle" style ="color:black;">
+                <i class="bx bx-chevron-down dropdown__icon"></i
+                  >
+              </a>
+              <ul class="dropdown__menu">
+                <li class="dropdown__item">
+                  <a href="{% url 'client_profile'%}#" class="nav__link">Profile</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="nav__link">Workout Log</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="nav__link">Setting</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="nav__link">Log out</a>
+                </li>
+              </ul>
+          
+            </li>
+          </ul>
         </div>
-        <div class="menu-toggle" id="mobile-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <ul class="nav-links">
-            <li><a href="{% url 'home'%}#about" class ="nav-btn">About</a></li>
-            <li><a href="{% url 'home'%}#program" class="nav-btn">Program</a></li>
-            <li><a href="{% url 'home'%}#contact" class ="nav-btn">Contact</a></li>
-            <li><a href="{% url 'client_profile' %}" class="bi bi-person-circle"></a></li>
-           
-        </ul>
+      </div>
     </nav>
 </header>
 
 <script>
-    // Mobile menu toggle
-    const mobileMenu = document.querySelector('#mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
+    /*===== EXPANDER MENU  =====*/
+const showMenu = (toggleId, navId) => {
+    const toggle = document.getElementById(toggleId),
+      nav = document.getElementById(navId);
+  
+    if (toggle && nav) {
+      toggle.addEventListener("click", () => {
+        nav.classList.toggle("show");
+        toggle.classList.toggle("bx-x");
+      });
+    }
+  };
+  showMenu("header-toggle", "nav-menu");
+  
+  /*===== ACTIVE AND REMOVE MENU =====*/
+  const navLink = document.querySelectorAll(".nav__link");
+  
+  function linkAction() {
+    /*Active link*/
+    navLink.forEach((n) => n.classList.remove("active"));
+    this.classList.add("active");
+  }
+  navLink.forEach((n) => n.addEventListener("click", linkAction));
 
-    mobileMenu.addEventListener('click', function() {
-        navLinks.classList.toggle('active');
-    });
 </script>

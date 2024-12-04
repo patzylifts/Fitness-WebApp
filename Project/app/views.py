@@ -27,7 +27,7 @@ class WorkoutLogListView(ListView):
     model = WorkoutLog
     context_object_name = 'workoutlog_list'
     template_name = 'apps/homepages/workoutlogview.html'
-
+  
 # View for WorkoutPlan View
 class WorkoutDetailView(DetailView):
     model = WorkoutPlan
