@@ -1,15 +1,20 @@
 {% extends 'apps/homepages/homepagebase.html'%}
 {% load static %}
-
 {% block content%}
+<link rel="stylesheet" href="{% static 'css/profile_info.css' %}">
 
-<div class="post-entry">
-    <h2>{{workoutplan.workoutPlanName}}</h2>
-    <h2>{{workoutplan.workoutGoal}}</h2>
-    <h2>{{workoutplan.workoutPlanDescription}}</h2>
-    <h2>{{workoutplan.workoutProgram}}</h2>
+
+<div class="detail-view">
+    <div class="grid-container">
+        {% for workoutplan in workoutplan_detail %}
+            <div class="grid-item">
+                <a href="{% url 'workoutplan_detail' workoutplan.pk %}">
+                    <h2>{{ workoutplan.workoutPlanName }}</h2>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
 </div>
-
 
 {% endblock content %}
 

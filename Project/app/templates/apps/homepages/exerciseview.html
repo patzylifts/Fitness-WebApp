@@ -1,0 +1,26 @@
+{% extends 'apps/homepages/homepagebase.html'%}
+{% load static %}
+{% block content%}
+<link rel="stylesheet" href="{% static 'css/profile_info.css' %}">
+
+<div class="exercise-detail">
+    <h1>{{ workoutplan.workoutPlanName }}</h1>
+    
+    <div class="detail-item">
+        <h2>Description</h2>
+        <p>{{ workoutplan.workoutPlanDescription }}</p>
+    </div>
+    <div class="detail-item">
+        <h2>Program</h2>
+        <a href=""> <p>{{ workoutplan.workoutProgram |linebreaksbr}}</p>
+       </a>
+
+    </div>
+ 
+</div>
+
+
+
+{% endblock content %}
+
+

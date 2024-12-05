@@ -18,14 +18,14 @@
         <div class="nav__menu">
           <ul class="nav__list">
             <li class="nav__item">
-              <a href="#" class="nav__link active">Home</a>
+              <a href="{% url 'home' %}" class="nav__link active">Home</a>
             </li>
 
             <li class="nav__item">
               <a href="{% url 'home' %}#about" class="nav__link">About</a>
             </li>
 
-            <li class="nav__item dropdown">
+            <li class="nav__item ">
               <a href="{% url 'home'%}#program" class="nav__link">Program </a>              
             </li>
 

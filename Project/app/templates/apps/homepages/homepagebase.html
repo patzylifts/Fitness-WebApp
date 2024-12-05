@@ -6,14 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PFit | Elevate</title>
     <link rel="icon" href="{% static 'images/favicon.ico' %}">
-    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
-    <link href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" rel="stylesheet"
-  />
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}"> 
     <!--Icons-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" rel="stylesheet"/>
 </head>
 <body>
-
+    <!--For Navbar -->
     {% include 'apps/homepages/navbar.html' %}
    
     <!--For Content -->
@@ -70,7 +69,8 @@
             <h2>About Us</h2>
             <p>At PFit, we have fitness programs based on individual goals, whether you want to lose weight, build muscle, or improve overall wellness.</p>
         </section>
-    {% endblock content %}
+    
     {% include 'apps/homepages/footer.html' %}
+    {% endblock content %}
 </body>
 </html>
