@@ -3,6 +3,7 @@
 {% block content%}
 <link rel="stylesheet" href="{% static 'css/profile_info.css' %}">
 
+{% comment %} List view {% endcomment %}
 <div class="exercise-detail">
     <h1>{{ workoutplan.workoutPlanName }}</h1>
     
@@ -12,7 +13,7 @@
     </div>
     <div class="detail-item">
         <h2>Program</h2>
-        <a href=""> <p>{{ workoutplan.workoutProgram |linebreaksbr}}</p>
+        <a href="{% url 'video'%}#popup"> <p>{{ workoutplan.workoutProgram |linebreaksbr}}</p>
        </a>
 
     </div>

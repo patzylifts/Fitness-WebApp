@@ -1,0 +1,17 @@
+{% extends 'apps/homepages/homepagebase.html'%}
+{% load static %}
+{% block content%}
+<link rel="stylesheet" href="{% static 'css/profile_info.css'%}">
+
+<div class="post-entry">
+    <form action="{% url 'workoutlog_delete' object.pk %}" method="POST">
+        {% csrf_token %}
+        <a href="{% url 'workoutlog'%}" class="bi bi-x-lg" id ="cancel-btn"></a>
+        <h2>Are you sure you want to delete "{{ object }}"?</h2>
+        <input class="cta-btn" type="submit" value="Confirm" />
+    </form>
+</div>
+
+
+{% endblock content %}
+

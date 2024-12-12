@@ -1,5 +1,5 @@
 from django import forms
-from .models import Client
+from .models import Client, WorkoutLog
 
 class ClientForm(forms.ModelForm):
     class Meta:
@@ -19,3 +19,8 @@ class ClientForm(forms.ModelForm):
             'joinedDate': forms.DateInput(attrs={'class': 'form-input'}),
 
         }
+
+class WorkoutLogForm(forms.ModelForm): 
+    class Meta: 
+        model = WorkoutLog 
+        fields = ['workoutClientName', 'workoutPlanName', 'workoutLogGoals', 'workoutLogDate', 'workoutPlanDateCreated']

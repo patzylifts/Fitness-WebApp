@@ -24,11 +24,7 @@
 	box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.6;
-}
+
 
 @media screen and (min-width: 768px) {
   :root {
@@ -47,6 +43,7 @@ body {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   font-weight: 600;
+  line-height: 1.6;
 }
 
 ul {

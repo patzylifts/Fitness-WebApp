@@ -3,17 +3,17 @@
 
   
   <!-- Button to open the popup -->
-  <a class="cta-btn" id="popup_link" href="{% url 'workoutlog'%}">Discover Your Program</a>
+  <a class="cta-btn" id="popupForm1" href="#popupForm1">Discover Your Program</a>
   
   <!-- Dark overlay behind the popup -->
   <!-- First Popup Div -->
-  {% comment %} <div id="popupForm1" class="popup">
+ <div id="popupForm1" class="popup">
     <div class="popup-content">
       <a href="#" class="close">&times;</a>
       <h3 class="div-header">What's your primary goal?</h3>
       <div class="grid-item">
         <div class="descrip">
-            <a href="{% url 'client_create'%}" class="goal">Lose Weight</a>
+            <a href="" class="goal">Lose Weight</a>
           </div>
           <div class="descrip">
             <a href="#popupForm2" class="goal">Maintain weight</a>
@@ -26,12 +26,12 @@
           </div>
       </div>      
     </div>
-  </div> {% endcomment %}
+  </div>
 
   <!-- Second Popup Div -->
  
          
-  <div id="popupForm2" class="popup">
+  {% comment %} <div id="popupForm2" class="popup">
     <div class="popup-content">
       <a href="#" class="close">&times;</a>
       <h3 class="div-header">Fitness Profile</h3>
@@ -47,7 +47,7 @@
       </div>    
     </div>
   </div>
-  
+   {% endcomment %}
 
 
 

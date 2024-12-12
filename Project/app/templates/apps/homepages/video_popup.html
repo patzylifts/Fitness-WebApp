@@ -1,0 +1,32 @@
+{% extends 'apps/homepages/homepagebase.html'%}
+{% load static %}
+{% block content%}
+<link rel="stylesheet" href="{% static 'css/popup_video.css' %}">
+
+{% comment %} List view {% endcomment %}
+
+<div id="popup" class="popup"> 
+    <div class="popup-content"> 
+        <span class="close">&times;</span> 
+        <div class="video-container"> 
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" 
+            allowfullscreen>
+            </iframe> 
+        </div> 
+        <div class="links"> 
+            <a href="https://link1.com">Link 1</a> 
+            <a href="https://link2.com">Link 2</a> 
+            <a href="https://link3.com">Link 3</a> 
+            <a href="https://link4.com">Link 4</a> 
+            <a href="https://link5.com">Link 5</a> 
+        </div> 
+    </div>
+</div>
+  
+<script src="{% static 'js/popup_video.js'%}"></script>
+
+
+
+{% endblock content %}
+
+

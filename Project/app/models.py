@@ -3,12 +3,13 @@ from django.db import models
 # models for the Goals table
 class Goals(models.Model):
     goalID = models.AutoField(primary_key=True)
-    goalType =  models.CharField(max_length=100)
+    goal_name =  models.CharField(max_length=100)
+    
     goalDescription = models.TextField()    
     exerciseDuration = models.PositiveIntegerField()
 
     def __str__(self):
-        return self.goalType
+        return self.goal_name
     
     
 
@@ -37,6 +38,9 @@ class Client(models.Model):
     )
     activityLevel = models.CharField(max_length=100, choices=level_choices)
     joinedDate = models.DateField(null = False)
+    bmi = models.FloatField(null=True, blank=True) 
+    calories = models.FloatField(null=True, blank=True)
+    bmi_category = models.CharField(max_length=10, null=True, blank=True)
 
     def __str__(self):
         return f"{self.fname} {self.lname} {self.joinedDate}"
@@ -48,7 +52,7 @@ class WorkoutPlan(models.Model):
     workoutPlanName = models.CharField(max_length=100)
     workoutGoal = models.ManyToManyField(Goals)   
     workoutPlanDescription = models.TextField()
-    workoutProgram = models.TextField(max_length=200)
+    workoutProgram = models.TextField(max_length=1200)
 
     def __str__(self):
         return self.workoutPlanName
@@ -72,8 +76,8 @@ class WorkoutLog(models.Model):
     workoutClientName = models.ManyToManyField(Client)
     workoutPlanName = models.ManyToManyField(WorkoutPlan)
     workoutLogGoals = models.ForeignKey(Goals, on_delete= models.CASCADE)
-    workoutLogDate = models.DateTimeField()
-    workoutPlanDateCreated = models.DateField(null=False)
+    workoutLogDate = models.DateTimeField(null=False)
+    workoutPlanDateCreated = models.DateField()
        
     def __str__(self):
         return str(self.workoutLogDate)

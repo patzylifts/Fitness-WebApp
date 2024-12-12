@@ -1,0 +1,68 @@
+{% extends 'apps/homepages/homepagebase.html'%}
+{% load static %}
+{% block content%}
+<link rel="stylesheet" href="{% static 'css/profile_info.css' %}">
+
+{% comment %} List view {% endcomment %}
+<div class="client-detail-container">
+    <div class="client-detail">              
+        <h1  class="bi bi-person-circle" style ="color:black;">   
+            {{ client.fname }} {{ client.lname }}  
+        </h1>
+        <div class="detail-item">
+            <h2>Age</h2>
+            <p>{{ client.clientAge }}</p>
+        </div>
+        <div class="detail-item">
+            <h2>Gender</h2>
+            <p>{{ client.get_clientSex_display }}</p>
+        </div>
+        <div class="detail-item">
+            <h2>Birth Date</h2>
+            <p>{{ client.birthdate }}</p>
+        </div>
+        <div class="detail-item">
+            <h2>Goal</h2>
+            <p>{{ client.goal }}</p>
+        </div>
+        <div class="detail-item">
+            <h2>Weight (kg)</h2>
+            <p>{{ client.weight }}</p>
+        </div>
+        <div class="detail-item">
+            <h2>Height (cm)</h2>
+            <p>{{ client.height }}</p>
+        </div>
+        <div class="detail-item">
+            <h2>Activity Level</h2>
+            <p>{{ client.get_activityLevel_display }}</p>
+        </div>
+        <div class="detail-item">
+            <h2>Join Date</h2>
+            <p>{{ client.joinedDate }}</p>
+        </div>
+        <div class="detail-item">
+            <h2>Calories</h2> 
+            <p>{{ client.calories }}</p> 
+        </div>
+        <div class="detail-item"> 
+            <h2>BMI</h2> 
+            <p>{{ client.bmi }}</p> 
+        </div>
+        <div class="detail-item">
+            <h2>BMI Classification</h2> 
+            <p>{{ client.bmi_category }}</p> 
+        </div>
+        
+        
+        <a href= "{% url 'client_update' object.pk %}"class ="cta-btn" type="submit" value ="Edit">Edit</a>
+       
+    </div>
+</div>
+{% comment %} List view {% endcomment %}
+
+
+
+{% endblock content %}
+
+

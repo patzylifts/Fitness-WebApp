@@ -1,0 +1,70 @@
+{% extends 'apps/homepages/homepagebase.html'%}
+{% load static %}
+{% block content%}
+<link rel="stylesheet" href="{% static 'css/profile_info.css'%}">
+
+<div class="post-entry">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div>
+            <label for="workoutlogClient">Client:</label>
+            <select name="workoutClientName" id="workoutlogClient">
+                {% for client in client_name %}
+                    <option value="{{ client.pk }}" {% if client.pk == form.client_name.value %} selected {% endif %}>
+                        {{ client }}
+                    </option>
+                {% endfor %}
+            </select>
+            {% for error in form.workoutClientName.errors %}
+                <small style="color:red;">{{ error }}</small>
+            {% endfor %}
+        </div>
+        <div>
+            <label for="workoutPlanName">Workout Plan:</label>
+            <select name="workoutPlanName" id="workoutPlanName">
+                {% for plan in workout_plan %}
+                    <option value="{{ plan.pk }}" {% if plan.pk == form.workout_plan.value %} selected {% endif %}>
+                        {{ plan }}
+                    </option>
+                {% endfor %}
+            </select>
+            {% for error in form.workoutPlanName.errors %}
+                <small style="color:red;">{{ error }}</small>
+            {% endfor %}
+        </div>
+        <div>
+            <label for="goal">Goals:</label>
+            <select name="workoutLogGoals" id="goal">
+                {% for goals in goal %}
+                    <option value="{{ goals.pk }}" {% if goals.pk == form.goal.value %} selected {% endif %}>
+                        {{ goals }}
+                    </option>
+                {% endfor %}
+            </select>
+            {% for error in form.goal.errors %}
+                <small style="color:red;">{{ error }}</small>
+            {% endfor %}
+        </div>
+        
+     
+        <div>
+            <label for="workoutLogDate">Log Date:</label>
+            <input type="datetime-local" name="workoutLogDate" id="workoutLogDate" value="{{ form.workoutLogDate.value }}">
+            {% for error in form.workoutLogDate.errors %}
+                <small style="color:red;">{{ error }}</small>
+            {% endfor %}
+        </div>
+        <div>
+            <label for="workoutPlanDateCreated">Date Created:</label>
+            <input type="date" name="workoutPlanDateCreated" id="workoutPlanDateCreated" value="{{ form.workoutPlanDateCreated.value }}">
+            {% for error in form.workoutPlanDateCreated.errors %}
+                <small style="color:red;">{{ error }}</small>
+            {% endfor %}
+        </div>
+        <input class="cta-btn" type="submit" value="Save">
+    </form>
+</div>
+
+
+{% endblock content %}
+

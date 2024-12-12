@@ -1,31 +1,52 @@
   <!-- Footer contact -->
-    <!-- Contact -->
-    <section class="contact" id="contact"  data-aos="fade-up-left"  data-aos-delay="50">
-      <div class="heading">
-          <p>Have Any Question?</p>
-          <h2>Contact Us</h2>
-      </div>
-      <div class="contact-form">
-          <form action="" return false;>
-              <input type="text" placeholder="Your Name" required>
-              <input type="email" name="" id="" placeholder="Enter Your Email..." required>
-              <textarea name="" id="" cols="30" rows="10" placeholder="Write Your Message Here... " required></textarea>
-              <input type="submit" value="Send" class="contact-button">
-          </form>
-      </div>
-  </section>
-  
-  <!-- Copyright -->
-  <section class="contact" id="contact">
-      <div class="social">
-          <a href="https://www.instagram.com/"><i class="bi bi-instagram"></i></a>
-          <a href="https://yt.com"><i class="bi bi-reddit"></i></a>
-          <a href="https://www.reddit.com"><i class="bi bi-youtube"></i></a>
-      </div>
-      <div class="links">
-          <a href="#">Privacy Policy</a>
-          <a href="products.php#about">Our Company</a>
-          <a href="#">Term Of Use</a>
-      </div>
-      <p>&#169; All Right Reserved PFit Elevate 2024</p>
-  </section> 
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/footer.css'%}">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+
+<footer class="footer" id = "footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>Contact us</h4>
+                <ul>                   
+                    <li><a>Email:pfit@gmail.com</a></li>
+                    <li><a>Phone:+639 1234 1236</a></li>
+                    <li><a>Address:PFit Bulding Salawag Dasmarninas Cavite</a></li>               
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>get help</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Assistance</a></li>
+                    <li><a href="#">User terms</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Membership cancellation</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Quick links</h4>
+                <ul>
+                    <li><a href="">Profile</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Program</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <br>
+                    <small>@ 2025 PFit Elevate</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
