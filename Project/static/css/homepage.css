@@ -14,7 +14,6 @@ body {
 
 /* Hero section styles */
 #hero {
-    background: url('https://via.placeholder.com/1500x500') no-repeat center center/cover; 
     color: white;
     height: 100vh;
     display: flex;
@@ -22,31 +21,44 @@ body {
     align-items: center;
     text-align: center;
 }
-.hero-content {
-    background-color: rgba(255, 255, 255, 0.2); 
-    backdrop-filter: blur(10px); 
-    padding: 20px; 
-    border-radius: 10px;
-    height: fit-content;
+.hero-content { 
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  
 }
 #hero h2 {
     font-size: 3rem;
+    color: white;
+   
 }
 
 #hero p {
     font-size: 1.5rem;
     margin-bottom: 20px;
 }
+p {
+    color: #002C3F;
+}
+span{
+    color: #002C3FB3;
+}
 
 
 /* About section */
 #about {
+    
+   
     padding: 50px;
     text-align: center;
+    height: 330px;
 }
 
 #about p {
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
     font-size: 1.2rem;
 }
@@ -69,7 +81,7 @@ body {
 }
 /* Program section */
 #program {
-    background-color: #f4f4f4;
+   
     padding: 50px;
     text-align: center;
 }
@@ -128,7 +140,7 @@ body {
 
 /* CTA button */
 .cta-btn {
-    background-color: #ff6b6b;
+    background-color: #00A359;
     color: white;
     padding: 10px 25px;
     text-decoration: none;
@@ -139,7 +151,8 @@ body {
 }
 
 .cta-btn:hover {
-    background-color: #ff4c4c;
+    background-color: #00A359;
+    box-shadow:  0px 3px 17px 4px rgba(57, 142, 115, 0.46);
 }
 
 /* Responsive Design for Smaller Screens */
@@ -151,7 +164,7 @@ body {
 
 /* CTA button */
 .cta-btn {
-    background-color: #ff4c4c;
+    background-color: #00A359;
     color: white;
     padding: 10px 25px;
     text-decoration: none;
@@ -162,7 +175,8 @@ body {
 }
 
 .cta-btn:hover {
-    background-color: #ff4c4c;
+    background-color: #00A359;
+    box-shadow:  0px 3px 17px 4px rgba(57, 142, 115, 0.46);
 }
 
 /* Footer */

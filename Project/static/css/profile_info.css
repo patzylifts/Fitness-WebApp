@@ -2,10 +2,8 @@ html{
     scroll-behavior: smooth ;
     scroll-padding: 120px;
 }
-body{
-    padding-top: 100px;
-}
-.post-entry {
+
+.post-entry, .content-workoutlog {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,8 +21,19 @@ body{
     margin-left: 80%;
 }
 
-form {
+.form-info {
     background-color: #f9f9f9;
+    margin-top: 40%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+.form-log {
+    background-color: #f9f9f9;
+    margin-top: 15%;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -213,5 +222,46 @@ select {
 }
 
 /*Design for WorkoutLog*/
+
+
+
+.content-workoutlist {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.detail {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.link {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+.link:hover {
+    color: #0056b3;
+}
+
+.link.new-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.link.new-link:hover {
+    background-color: #0056b3;
+}
+
 
 

@@ -7,8 +7,8 @@
 
   /*===== Colors =====*/
   --first-color: black;
-  --first-color-light: #295135;
-  --dark-color: #295135; 
+  --first-color-light: #00A359;
+  --dark-color: black; 
   --white-color:  black;
 
   /*===== Font and typography =====*/
@@ -87,7 +87,7 @@ a {
   width: 100%;
   height: var(--header-height);
   padding: 0 1rem;
-  background-color: #D6F9DD;
+  background-color: white;
   z-index: var(--z-fixed);
   display: flex;
   justify-content: space-between;
@@ -164,7 +164,7 @@ a {
 }
 
 .nav__link:hover {
-  color: black;
+  color: #00A359;
 }
 
 /*Show menu*/

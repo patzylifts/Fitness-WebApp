@@ -27,7 +27,7 @@ class VideoView(TemplateView):
     template_name = 'apps/homepages/video_popup.html'
 
 
-# View for WorkoutLog List
+# View for WorkoutLog List CRUD
 class WorkoutLogListView(ListView):
     model = WorkoutLog
     context_object_name = 'workoutlog_list'
@@ -36,7 +36,6 @@ class WorkoutLogDetView(DetailView):
     model = WorkoutLog
     context_object_name = 'workoutlog'
     template_name = 'apps/homepages/workoutlog_detail.html'
-
 class WorkoutLogCreateView(CreateView):
     model = WorkoutLog
     form_class = WorkoutLogForm
@@ -49,7 +48,6 @@ class WorkoutLogCreateView(CreateView):
         context['workout_plan'] = WorkoutPlan.objects.all()      
         context['goal'] = Goals.objects.all() 
         return context
-
 class WorkoutLogUpdateView(UpdateView):
     model = WorkoutLog
     form_class = WorkoutLogForm
@@ -64,12 +62,10 @@ class WorkoutLogUpdateView(UpdateView):
         context['workout_plan'] = WorkoutPlan.objects.all()      
         context['goal'] = Goals.objects.all() 
         return context
-
 class WorkoutLogDelete(DeleteView):
     model = WorkoutLog
     template_name = 'apps/homepages/workoutlog_delete.html'
     success_url =reverse_lazy('workoutlog')
-
     
 # View for WorkoutPlan View
 class WorkoutListView(ListView):
@@ -81,6 +77,7 @@ class ExerciseDetailView(DetailView):
     context_object_name = 'workoutplan'
     template_name = 'apps/homepages/exerciseview.html'
 
+# View for Client Info CRUD
 class ClientInfoView(DetailView):
     model = Client
     context_object_name = 'client' 
