@@ -1,15 +1,19 @@
 {% extends 'apps/homepages/homepagebase.html'%}
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/profile_info.css'%}">
 {% block content%}
-   
-    <div class="content-workoutlist">
-        {% for workoutlog in workoutlog_list %}                      
+<link rel="stylesheet" href="{% static 'css/profile_info.css'%}">
+{% comment %} List view {% endcomment %}
+    <div class="post-entry">
+        <div class="form-log">
+          
+            {% for workoutlog in workoutlog_list %}                      
             <h2 class="details"><a class="link"href="{% url 'workoutlog_detail' workoutlog.pk%}">{{ workoutlog.workoutLogDate }}</a></h2>
-        {% endfor %}
+            {% endfor %}
+            <a href="{% url 'workoutlog_create'%}">++New</a>
+        </div>
+       
     </div>
-    <a href="{% url 'workoutlog_create'%}">New</a>
-
+    
 {% endblock content %}
 
 
