@@ -26,7 +26,6 @@ class FormInfoView(TemplateView):
 class VideoView(TemplateView):
     template_name = 'apps/homepages/video_popup.html'
 
-
 # View for WorkoutLog List CRUD
 class WorkoutLogListView(ListView):
     model = WorkoutLog
@@ -40,8 +39,7 @@ class WorkoutLogCreateView(CreateView):
     model = WorkoutLog
     form_class = WorkoutLogForm
     template_name = 'apps/homepages/workoutlog_create.html'
-    success_url = '/workoutlog/'
-  
+    success_url = reverse_lazy('workoutlog')
     def get_context_data(self, **kwargs): 
         context = super().get_context_data(**kwargs) 
         context['client_name'] = Client.objects.all()
@@ -86,7 +84,8 @@ class ClientCreateView(CreateView):
     model = Client 
     form_class = ClientForm 
     template_name = 'apps/homepages/client_create_edit.html' 
-    success_url = '/home/' 
+    success_url = reverse_lazy('home') 
+
     def form_valid(self, form): 
         client = form.save(commit=False) 
         client.bmi = self.calculate_bmi(client.weight, client.height) 
