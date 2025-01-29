@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/loginreg.css' %}">
+    <title>PFit</title>
+</head>
+<body style="background-image: url({% static 'images/background/plates.jpg' %});">
+    <div class="container" id="container">
+        <!--Content-->    
+        {% block content %}
+            <div class="form-container log-in-container">
+                <form method="POST">
+                    {% csrf_token %}
+                    <h1>PFit</h1>
+                    <div class="social-container">
+                        <a href="#" class="social">
+                            <img width="32" height="32" src="https://img.icons8.com/windows/32/youtube-play.png" alt="youtube-play"/>
+                        </a>
+                        <a href="#" class="social">
+                            <img width="32" height="32" src="https://img.icons8.com/windows/32/instagram-new.png" alt="instagram-new"/>
+                        </a>
+                    </div>
+                    <span>Log in</span>
+                    <input type="text" name="username" placeholder="Username" required/>
+                    {{ form.username.errors }}
+                    <input type="password" name="password" placeholder="Password" required/>
+                    {{ form.password.errors }}
+                    <a href="#">Forgot your password?</a>
+                    <input type="submit" name="login" value="Login"/>
+                    <a href="{% url 'signup' %}">Sign Up</a>
+                </form>
+            </div>
+        {% endblock content %}
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-right">
+                    <h1>Empowering Every Step of Your Journey Towards a Healthier You</h1>
+                    <p>If it doesn't challenge you, it doesn't change you.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Popup Message-->
+    {% if messages %}
+    <script>
+        {% for message in messages %}
+            alert("{{ message }}");
+        {% endfor %}
+    </script>
+    {% endif %}
+</body>
+</html>

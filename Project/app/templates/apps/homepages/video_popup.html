@@ -1,32 +1,123 @@
-{% extends 'apps/homepages/homepagebase.html'%}
-{% load static %}
-{% block content%}
-<link rel="stylesheet" href="{% static 'css/popup_video.css' %}">
+{% extends 'apps/homepages/homepagebase.html' %}
 
-{% comment %} List view {% endcomment %}
+{% block content %}
+<div class="exercise-list">
+    <h2>Exercises</h2>
+    <ul>
+        {% for exercise in exercises %}
+            <li>
+                <a href="#" class="open-popup" 
+                   data-video-url="{{ exercise.workoutLink|youtube_embed }}" 
+                   data-title="{{ exercise.workoutName }}">
+                    {{ exercise.workoutName }}
+                </a>
+            </li>
+        {% empty %}
+            <li>No exercises available.</li>
+        {% endfor %}
+    </ul>
+</div>
 
-<div id="popup" class="popup"> 
-    <div class="popup-content"> 
-        <span class="close">&times;</span> 
-        <div class="video-container"> 
-            
-            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/gRVjAtPip0Y?si=tyMrXkyNkGOE2xJ6&amp;start=2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <p>Bench Press</p> 
-        </div> 
-        <div class="links"> 
-            <a href="https://link1.com">Link 1</a> 
-            <a href="https://link2.com">Link 2</a> 
-            <a href="https://link3.com">Link 3</a> 
-            <a href="https://link4.com">Link 4</a> 
-            <a href="https://link5.com">Link 5</a> 
-        </div> 
+<!-- Popup Structure -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <span class="close">&times;</span>
+        <div class="video-container">
+            <iframe id="popup-video" width="560" height="315" src="" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+            <p id="popup-title"></p>
+        </div>
     </div>
 </div>
-  
-<script src="{% static 'js/popup_video.js'%}"></script>
-
-
-
 {% endblock content %}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const popup = document.getElementById('popup');
+        const popupVideo = document.getElementById('popup-video');
+        const popupTitle = document.getElementById('popup-title');
+        const closeBtn = document.querySelector('.popup .close');
+        const openBtns = document.querySelectorAll('.open-popup');
 
+        openBtns.forEach(btn => {
+            btn.addEventListener('click', (event) => {
+                event.preventDefault();
+                const videoUrl = btn.getAttribute('data-video-url');
+                const title = btn.getAttribute('data-title');
+                popupVideo.src = videoUrl;
+                popupTitle.textContent = title;
+                popup.style.display = 'flex';
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            popup.style.display = 'none';
+            popupVideo.src = ''; // Stop the video
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target === popup) {
+                popup.style.display = 'none';
+                popupVideo.src = ''; // Stop the video
+            }
+        });
+    });
+</script>
+
+<style>
+    .popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .popup-content {
+        background: white;
+        border-radius: 8px;
+        padding: 20px;
+        width: 600px;
+        max-width: 90%;
+        position: relative;
+    }
+
+    .popup .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .video-container iframe {
+        width: 100%;
+        border-radius: 8px;
+    }
+
+    .exercise-list ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .exercise-list li {
+        margin-bottom: 10px;
+    }
+
+    .exercise-list a {
+        color: #3498db;
+        text-decoration: none;
+    }
+
+    .exercise-list a:hover {
+        text-decoration: underline;
+    }
+</style>
 

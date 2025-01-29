@@ -1,20 +1,20 @@
 from django.db import models
-
+from django.conf import settings
+from django.contrib.auth.models import User
 # models for the Goals table
 class Goals(models.Model):
     goalID = models.AutoField(primary_key=True)
-    goal_name =  models.CharField(max_length=100)
+    goal =  models.CharField(max_length=100)
     
     goalDescription = models.TextField()    
     exerciseDuration = models.PositiveIntegerField()
 
     def __str__(self):
-        return self.goal_name
-    
-    
+        return self.goal
 
 # models for the Client table
-class Client(models.Model):
+class Client(models.Model):  
+    user = models.OneToOneField(User, null=True,  on_delete=models.CASCADE)
     clientID = models.AutoField(primary_key=True)
     fname = models.CharField(max_length=100,null = False) 
     lname = models.CharField(max_length=100, null = False)  
@@ -65,7 +65,8 @@ class Exercise(models.Model):
     workoutDescription = models.TextField() 
     workoutSets = models.CharField(max_length=20)
     workoutReps = models.CharField(max_length=20)
-
+    workoutLink = models.URLField() 
+    
     def __str__(self):
         return self.workoutName
 

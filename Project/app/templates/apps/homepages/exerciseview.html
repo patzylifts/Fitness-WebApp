@@ -1,26 +1,43 @@
-{% extends 'apps/homepages/homepagebase.html'%}
+{% extends 'apps/homepages/homepagebase.html' %}
 {% load static %}
-{% block content%}
+{% block content %}
 <link rel="stylesheet" href="{% static 'css/profile_info.css' %}">
+<link rel="stylesheet" href="{% static 'css/search.css' %}">
 
-{% comment %} List view {% endcomment %}
 <div class="exercise-detail">
     <h1>{{ workoutplan.workoutPlanName }}</h1>
-    
+    <form method="get" action="">
+        <input type="text" name="q" placeholder="Search Exercise..." value="{{ request.GET.q }}">
+        <button type="submit">Search</button>
+    </form>
+
     <div class="detail-item">
         <h2>Description</h2>
         <p>{{ workoutplan.workoutPlanDescription }}</p>
     </div>
+    
     <div class="detail-item">
-        <h2>Program</h2>
-        <a href="{% url 'video'%}#popup"> <p>{{ workoutplan.workoutProgram |linebreaksbr}}</p>
-       </a>
+        <h2>Exercises</h2>
+        <ul>
+            {% for exercise in filtered_exer %}
+                <li>
+                    <a href="{% url 'video_popup'%}" >
+                        <strong>{{ exercise.workoutName }}</strong>
+                    </a>
+                    - {{ exercise.workoutSets }} x {{ exercise.workoutReps }} reps
+                </li>
+                <p>{{ exercise.workoutDescription }}</p>
+            {% empty %}
+                <li>No exercises found for your search query.</li>
+            {% endfor %}
+        </ul>
+    </div> 
+    <div class="detail-item">
+       
+        <p><strong>Total program:</strong> {{ total_program }}</p>             
+        <p><strong>Total set:</strong> {{ total_sets }}</p>       
     </div>
 </div>
+
 {% include 'apps/homepages/footer.html' %}
-
-
-
 {% endblock content %}
-
-

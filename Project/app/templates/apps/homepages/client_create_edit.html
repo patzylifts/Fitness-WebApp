@@ -52,7 +52,7 @@
             <select name="goal" id="goal">
                 {% for goals in goal %}
                     <option value="{{ goals.pk }}" {% if goals.pk == form.goal.value %} selected {% endif %}>
-                        {{ goals }}
+                        {{ goals.goal }}
                     </option>
                 {% endfor %}
             </select>
@@ -60,6 +60,7 @@
                 <small style="color:red;">{{ error }}</small>
             {% endfor %}
         </div>
+        
         <div>
             <label for="weight">Weight (kg):</label>
             <input type="number" name="weight" id="weight" step=".01" value="{{ form.weight.value }}">

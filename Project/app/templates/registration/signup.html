@@ -1,0 +1,27 @@
+{% extends 'registration/login.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="form-container log-in-container">
+        <form method="post" onsubmit="checkPasswords()">
+            {% csrf_token %}
+            <h1>Register</h1>
+            {{ form.non_field_errors }}
+            <input type="text" name="username" placeholder="Username" required/>
+            {{ form.username.errors }}
+            <input type="text" name="first_name" placeholder="First name" required/>
+            {{ form.first_name.errors }}
+            <input type="text" name="last_name" placeholder="Last name" required/>
+            {{ form.last_name.errors }}
+            <input type="email" name="email" placeholder="Email" required/>
+            {{ form.email.errors }}
+            <input type="password" name="password1" placeholder="New password" required/>
+            {{ form.password1.errors }}
+            <input type="password" name="password2" placeholder="Confirm password" required/>
+            {{ form.password2.errors }}
+            
+            <button type="submit" name="signup" value="Register">Register</button>
+            <a href="{% url 'login' %}">Already have an account?</a>
+        </form>
+    </div>
+{% endblock content %}

@@ -20,7 +20,7 @@
         </p>
 
         <p>{{ workoutlog.workoutLogGoals }}</p>
-        <p>{{ workoutlog.workoutLogDate }}</p>   
+        <p>{{ workoutlog.workoutLogDate | time:'h:i A'}}</p>   
         <a href="{% url 'workoutlog_update' workoutlog.pk %}">Edit</a>
         <a href="{% url 'workoutlog_delete' workoutlog.pk %}">Delete</a>   
     </div>                         
