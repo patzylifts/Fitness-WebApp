@@ -35,12 +35,13 @@
                 <i class="bx bx-chevron-down dropdown__icon"></i>             
               </a>
               <ul class="dropdown__menu">
-                    {% for client in clients %}          
-                      <li class="dropdown__item">
-                       
-                          <a href="{% url 'client_info'  client.pk %}" class="nav__link">Profile</a>
-                      </li>
-                    {% endfor %}
+                        
+                {% for client in clients %}
+                <li class="dropdown__item">
+                    <a href="{% url 'client_info' client.pk %}" class="nav__link">Profile</a>
+                </li>
+                {% endfor %}
+                   
                     <li class="dropdown__item">
                       <a href="{% url 'workoutlog'%}" class="nav__link">Workout Log</a>
                     </li>

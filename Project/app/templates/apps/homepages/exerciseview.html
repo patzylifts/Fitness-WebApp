@@ -21,7 +21,7 @@
         <ul>
             {% for exercise in filtered_exer %}
                 <li>
-                    <a href="{% url 'video_popup'%}" >
+                    <a href="{{ exercise.workoutLink }}" target="_blank">
                         <strong>{{ exercise.workoutName }}</strong>
                     </a>
                     - {{ exercise.workoutSets }} x {{ exercise.workoutReps }} reps

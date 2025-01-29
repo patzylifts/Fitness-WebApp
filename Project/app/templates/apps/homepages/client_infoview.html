@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="{% static 'css/profile_info.css' %}">
 
 {% comment %} List view {% endcomment %}
+{% if client%}
 <div class="client-detail-container">
     <div class="client-detail">              
         <h1  class="bi bi-person-circle" style ="color:black;">   
@@ -59,6 +60,7 @@
        
     </div>
 </div>
+{% endif %}
 {% comment %} List view {% endcomment %}
 
 

@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect,  get_object_or_404
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy,reverse
 from django.views.generic import TemplateView, ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import WorkoutLog, WorkoutPlan, Goals, Client, Exercise
@@ -8,10 +8,18 @@ from .forms import ClientForm, WorkoutLogForm
 
 
 #Views of the pages
-class HomeView(TemplateView):
-   
+
+from django.shortcuts import render
+from .models import Client
+
+def some_view(request):
+    client = None
+    if request.user.is_authenticated:
+        client = Client.objects.filter(user=request.user).first()
+    return render(request, 'your_template.html', {'client': client})
+
+class HomeView(TemplateView): 
     template_name = 'apps/homepages/homepagebase.html'
-    
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -135,14 +143,14 @@ class ExerciseDetailView(DetailView):
 
 class ClientInfoView(DetailView):
     model = Client
-    context_object_name = 'clients'
+    context_object_name = 'client'
     template_name = 'apps/homepages/client_infoview.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)       
-        # Add 'clients' to the context
-        context['clients'] = Client.objects.all()  # Filter as necessary
-        return context
+class ClientInfosView(ListView):
+    model = Client
+    context_object_name = 'clients'
+
+from django.shortcuts import get_object_or_404, redirect
 class ClientCreateView(CreateView): 
     model = Client 
     form_class = ClientForm 
@@ -155,11 +163,14 @@ class ClientCreateView(CreateView):
         client.calories = self.calculate_calories(client.weight, client.goal) 
         client.bmi_category = self.bmi_categories(client.bmi) 
         client.save() 
+        form.instance.user = self.request.user
         return super().form_valid(form) 
+    
     def calculate_bmi(self, weight, height): 
         if height == 0: return 0 # To prevent division by zero 
         height_m = height / 100 # Convert cm to meters 
         return round(weight / (height_m * height_m), 2) 
+    
     def calculate_calories(self, weight, goal): 
         maintenance_calories = weight * 24 * 1.2 # Example calculation 
         if goal.name.lower() == 'lose weight': 
@@ -168,6 +179,7 @@ class ClientCreateView(CreateView):
             return round(maintenance_calories + 500) 
         else: 
             return round(maintenance_calories) 
+            
     def bmi_categories(self, bmi): 
         if bmi < 18.5: 
             return "Underweight" 
@@ -187,7 +199,9 @@ class ClientUpdateView(UpdateView):
     model = Client 
     form_class = ClientForm 
     template_name = 'apps/homepages/client_create_edit.html' 
-    success_url =  reverse_lazy('home') 
+   
+    def get_success_url(self):
+        return reverse('client_info', kwargs={'pk': self.object.pk})
 
     def form_valid(self, form): 
         client = form.save(commit=False)
