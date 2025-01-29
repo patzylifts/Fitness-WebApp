@@ -78,7 +78,7 @@ class WorkoutLog(models.Model):
     workoutPlanName = models.ManyToManyField(WorkoutPlan)
     workoutLogGoals = models.ForeignKey(Goals, on_delete= models.CASCADE)
     workoutLogDate = models.DateTimeField(null=False)
-    workoutPlanDateCreated = models.DateField()
+   
        
     def __str__(self):
         return str(self.workoutLogDate)

@@ -22,4 +22,4 @@ class ClientForm(forms.ModelForm):
 class WorkoutLogForm(forms.ModelForm): 
     class Meta: 
         model = WorkoutLog 
-        fields = ['workoutClientName', 'workoutPlanName', 'workoutLogGoals', 'workoutLogDate', 'workoutPlanDateCreated']
+        fields = ['workoutClientName', 'workoutPlanName', 'workoutLogGoals', 'workoutLogDate']
